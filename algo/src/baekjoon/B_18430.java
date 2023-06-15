@@ -28,6 +28,7 @@ public class B_18430 {
 			}
 		}
 		
+		// 작은 경우의 예외처리
 		if (N < 2 || M < 2) {
 			System.out.println("0");
 			return ;
@@ -36,11 +37,8 @@ public class B_18430 {
 		for (int i = 0; i < N; i++) {
 			for (int j = 0; j < M; j++) {
 				recur(i, j, 0);
-//				cancel(i, j, 0);
-//				System.out.println("---------------------------------");
 			}
 		}
-//		recur(0, 0, 0);
 		System.out.println(max);
 	}
 	
@@ -52,18 +50,16 @@ public class B_18430 {
 				for (int d = 0; d < 4; d++) {
 					int p = pick(i, j, d);
 					
-//					System.out.println("d:" + d + " i : " + i + " " + "j : " + j);
-//					System.out.println(sum + p);
 					if (p != 0) {
 						recur(i, j, sum + p);
 						cancel(i, j, d);
-//						sum = sum - p;
 					}
 				}
 			}
 		}
 	}
 	
+	// 유효성 검사 + 강도 구하기
 	static int pick(int i, int j, int dir) { //dir는 3까지 들어간다.
 		int i1 = i + di[dir];
 		int j1 = j + dj[dir];
@@ -79,12 +75,12 @@ public class B_18430 {
 			visited[i2][j2] = true;
 			sum += map[i1][j1];
 			sum += map[i2][j2];
-//			System.out.println(i  + " " + j + i);
 			return sum;
 		}
 		return 0;
 	}
 	
+	// visited 지우기
 	static void cancel(int i, int j, int dir) {
 		int i1 = i + di[dir];
 		int j1 = j + dj[dir];
