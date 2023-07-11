@@ -18,4 +18,12 @@ public class B_2138 {
 
 		
 	}
+
+	static void switching(int cur, int idx) {
+		for (int i = idx - 1; i <= idx + 1; i++) {
+			if (-1 < i && i < N) {
+
+			}
+		}
+	}
 }
