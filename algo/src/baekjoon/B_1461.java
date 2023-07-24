@@ -34,21 +34,21 @@ public class B_1461 {
     static void solve() {
         ArrayList<Integer> tmp = new ArrayList<>();
 
-        while (!minusQ.isEmpty() || !plusQ.isEmpty()) {
-            int left = Math.abs(minusQ.peek() == null ? 0 : minusQ.peek());
-            int right = Math.abs(plusQ.peek() == null ? 0 : plusQ.peek());
+            while (!minusQ.isEmpty() || !plusQ.isEmpty()) {
+                int left = Math.abs(minusQ.peek() == null ? 0 : minusQ.peek());
+                int right = Math.abs(plusQ.peek() == null ? 0 : plusQ.peek());
 
-            if (left > right) {
-                tmp.add(left);
-                for (int i = 0; i < M; i++) {
-                    if (minusQ.isEmpty()) break;
-                    minusQ.poll();
-                }
-            } else {
-                tmp.add(right);
-                for (int i = 0; i < M; i++) {
-                    if (plusQ.isEmpty()) break;
-                    plusQ.poll();
+                if (left > right) {
+                    tmp.add(left);
+                    for (int i = 0; i < M; i++) {
+                        if (minusQ.isEmpty()) break;
+                        minusQ.poll();
+                    }
+                } else {
+                    tmp.add(right);
+                    for (int i = 0; i < M; i++) {
+                        if (plusQ.isEmpty()) break;
+                        plusQ.poll();
                 }
             }
         }
@@ -60,3 +60,9 @@ public class B_1461 {
         ret -= tmp.get(0);
     }
 }
+/*
+6 2
+-1 3 4 5 6 11
+9 3
+-2 -1 3 4 5 6 11 18 20
+ */
