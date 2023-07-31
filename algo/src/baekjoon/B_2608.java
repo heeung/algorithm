@@ -20,8 +20,6 @@ public class B_2608 {
         toNumber(input1);
         toNumber(input2);
 
-
-
         System.out.println(sum);
         System.out.println(toWord());
     }
