@@ -20,7 +20,7 @@ public class Softeer_성적_평가 {
 	static ArrayList<Point>[] points;
 	static int[][] ret;
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 
