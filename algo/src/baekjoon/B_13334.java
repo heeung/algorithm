@@ -12,19 +12,11 @@ public class B_13334 {
         }
 
         @Override
-        public String toString() {
-            return "Locale{" +
-                    "start=" + start +
-                    ", end=" + end +
-                    '}';
-        }
-
-        @Override
         public int compareTo(Locale o) {
-            if (this.start == o.start) {
-                return this.end - o.end;
+            if (this.end == o.end) {
+                return this.start - o.start;
             }
-            return this.start - o.start;
+            return this.end - o.end;
         }
     }
     static int N, D, cnt, max;
@@ -54,10 +46,10 @@ public class B_13334 {
         D = Integer.parseInt(br.readLine());
 
         //슬라이딩 윈도우 형태
-        int left = pq.peek().start;
-        int right = left + D;
+        int right = pq.peek().end;
+        int left = right - D;
 
-        Queue<Integer> lq = new LinkedList<>();
+        PriorityQueue<Integer> lq = new PriorityQueue<>();
         while (!pq.isEmpty()) {
             Locale now = pq.poll();
 
@@ -68,10 +60,15 @@ public class B_13334 {
                 left = right - D;
             }
 
+//            System.out.println(right + "-----------");
+
             while (!lq.isEmpty() && lq.peek() < left) {
+//                int n = lq.poll();
+//                System.out.println(n);
                 lq.poll();
                 cnt--;
             }
+            lq.add(now.start);
             cnt++;
             max = Math.max(max, cnt);
         }
