@@ -35,8 +35,8 @@ public class B_1765 {
             if (isFriends == 'E') {
                 if (enemys.containsKey(from)) {
                     for (int now : enemys.get(from)) {
-                        graph[from].add(now);
-                        graph[now].add(from);
+                        graph[to].add(now);
+                        graph[now].add(to);
                     }
                     enemys.get(from).add(to);
                     if (!enemys.containsKey(to)) {
@@ -45,8 +45,8 @@ public class B_1765 {
                     enemys.get(to).add(from);
                 } else if (enemys.containsKey(to)) {
                     for (int now : enemys.get(to)) {
-                        graph[to].add(now);
-                        graph[now].add(to);
+                        graph[from].add(now);
+                        graph[now].add(from);
                     }
                     enemys.get(to).add(from);
                     if (!enemys.containsKey(from)) {
